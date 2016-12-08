@@ -2,7 +2,7 @@ package com.farias.models;
 
 import java.math.BigDecimal;
 
-public class Anexo implements TipoImposto {
+public class Anexo extends Entidade implements TipoImposto {
 
     public Anexo(String nome, BigDecimal aliquota) {
         this.nome = nome;

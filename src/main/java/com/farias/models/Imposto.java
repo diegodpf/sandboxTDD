@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 import java.util.Date;
 import java.util.List;
 
-public class Imposto {
+public class Imposto extends Entidade {
 
     private List<NotaFiscal> notasFiscais;
     private Cliente cliente;

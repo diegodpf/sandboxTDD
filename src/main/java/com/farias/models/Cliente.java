@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Cliente {
+public abstract class Cliente extends Entidade {
 
     private String nome;
     private RegimeTributario regimeTributario;

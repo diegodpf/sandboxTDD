@@ -2,7 +2,7 @@ package com.farias.models;
 
 import java.math.BigDecimal;
 
-public class ImpostoLucroPresumido implements TipoImposto {
+public class ImpostoLucroPresumido extends Entidade implements TipoImposto {
 
     public ImpostoLucroPresumido(String nome, BigDecimal aliquota) {
         this.nome = nome;
