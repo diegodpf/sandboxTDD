@@ -1,6 +1,7 @@
 package com.farias.models;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class Imposto {
     }
 
     public BigDecimal getValor() {
-        return valor;
+        return valor.setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public void setValor(BigDecimal valor) {

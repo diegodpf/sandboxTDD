@@ -48,6 +48,7 @@ public class ClienteLucroPresumidoTest {
         fixture.adicionarNotaFiscal(n2);
         fixture.adicionarNotaFiscal(n3);
         List<Imposto> impostos = fixture.calcularImpostos();
+        Assert.assertEquals(3, impostos.size());
         Assert.assertEquals(new BigDecimal(5.36).setScale(2, RoundingMode.HALF_EVEN),
                 impostos.get(0).getValor());
         Assert.assertEquals(new BigDecimal(2.23).setScale(2, RoundingMode.HALF_EVEN),

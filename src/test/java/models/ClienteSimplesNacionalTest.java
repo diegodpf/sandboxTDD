@@ -66,6 +66,7 @@ public class ClienteSimplesNacionalTest {
         fixture.adicionarNotaFiscal(n2);
         fixture.adicionarNotaFiscal(n3);
         List<Imposto> impostos = fixture.calcularImpostos();
+        Assert.assertEquals(1, impostos.size());
         Assert.assertEquals(new BigDecimal(10.38).setScale(2, RoundingMode.HALF_EVEN),
                 impostos.get(0).getValor());
     }

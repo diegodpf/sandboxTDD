@@ -20,4 +20,8 @@ public class ImpostoLucroPresumido implements TipoImposto {
         return aliquota;
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

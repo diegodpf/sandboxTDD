@@ -24,11 +24,12 @@ public class ClienteSimplesNacional extends Cliente {
     public List<Imposto> calcularImpostos() {
         Imposto imposto = new Imposto();
         imposto.setCliente(this);
+        imposto.setNotasFiscais(this.getNotasFiscais());
         imposto.setTipo("Simples Nacional");
         BigDecimal valor = BigDecimal.ZERO;
         for (NotaFiscal notaFiscal : this.getNotasFiscais()) {
             valor = valor.add(notaFiscal.getAnexo().getAliquota()
-                    .multiply(notaFiscal.getValor())).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+                    .multiply(notaFiscal.getValor()));
         }
         imposto.setValor(valor);
         return Arrays.asList(imposto);

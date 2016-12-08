@@ -4,34 +4,34 @@ import java.util.Date;
 
 public class Periodo {
 
-    private Date dataInicio;
-    private Date dataFim;
+    private Date inicio;
+    private Date fim;
 
     public Periodo() {}
 
-    public Periodo(Date dataInicio, Date dataFim) {
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+    public Periodo(Date inicio, Date fim) {
+        this.inicio = inicio;
+        this.fim = fim;
     }
 
     public void setPeriodoMesAno(Date dataReferencia) {
-        dataInicio = DateUtil.inicioDoMes(dataReferencia);
-        dataFim = DateUtil.fimDoMes(dataReferencia);
+        inicio = DateUtil.inicioDoMes(dataReferencia);
+        fim = DateUtil.fimDoMes(dataReferencia);
     }
 
-    public Date getDataInicio() {
-        return dataInicio;
+    public Date getInicio() {
+        return inicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
-        this.dataInicio = dataInicio;
+    public void setInicio(Date inicio) {
+        this.inicio = inicio;
     }
 
-    public Date getDataFim() {
-        return dataFim;
+    public Date getFim() {
+        return fim;
     }
 
-    public void setDataFim(Date dataFim) {
-        this.dataFim = dataFim;
+    public void setFim(Date fim) {
+        this.fim = fim;
     }
 }

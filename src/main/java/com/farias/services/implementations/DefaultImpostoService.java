@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,12 +28,19 @@ public class DefaultImpostoService implements ImpostoService {
         this.dao = dao;
     }
 
-    public void calcularImpostos(Cliente cliente, String anoMes) {
-        cliente.setNotasFiscais(notaFiscalDao.buscarPorPeriodo(cliente, DateUtil.criarPeriodoAnoMes(anoMes)));
+    public void setNotaFiscalDao(NotaFiscalDao dao) {
+        this.notaFiscalDao = dao;
+    }
+
+    public List<Imposto> calcularImpostos(Cliente cliente, Periodo periodo) {
+        cliente.setNotasFiscais(notaFiscalDao.buscarPorPeriodo(cliente, periodo));
+        List<Imposto> impostos = new ArrayList<Imposto>();
         for (Imposto imposto : cliente.calcularImpostos()) {
-            imposto.setDataReferencia(DateUtil.criarDataMesAno(anoMes));
+            imposto.setDataReferencia(periodo.getInicio());
             dao.save(imposto);
+            impostos.add(imposto);
         }
+        return impostos;
     }
 
     public List<Imposto> buscarImpostos(Cliente cliente, Periodo periodo) {

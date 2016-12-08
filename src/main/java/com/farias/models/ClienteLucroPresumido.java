@@ -17,11 +17,12 @@ public class ClienteLucroPresumido extends Cliente {
         for (ImpostoLucroPresumido tipoImposto : Impostos.getImpostosLucroPresumido()) {
             Imposto imposto = new Imposto();
             imposto.setCliente(this);
+            imposto.setNotasFiscais(this.getNotasFiscais());
             BigDecimal valor = BigDecimal.ZERO;
             imposto.setTipo(tipoImposto.toString());
             for (NotaFiscal notaFiscal : getNotasFiscais()) {
                 valor = valor.add(tipoImposto.getAliquota()
-                        .multiply(notaFiscal.getValor())).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+                        .multiply(notaFiscal.getValor()));
             }
             imposto.setValor(valor);
             impostos.add(imposto);
